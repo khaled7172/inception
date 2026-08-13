@@ -11,7 +11,12 @@ WP_USER_PASSWORD=$(grep WP_USER_PASSWORD /run/secrets/credentials | cut -d '=' -
 # First-run: download WordPress, create config, install site, create users
 if [ ! -f /var/www/html/wp-config.php ]; then
     echo "[init] Downloading WordPress core..."
-    wp core download --allow-root
+    wp core download --allow-root --force
+
+    echo "[init] Waiting for MariaDB to be reachable..."
+    until mysqladmin ping -h mariadb -u"${MYSQL_USER}" -p"${DB_PASSWORD}" --silent 2>/dev/null; do
+        sleep 2
+    done
 
     wp config create \
         --dbname="${MYSQL_DATABASE}" \
@@ -20,10 +25,6 @@ if [ ! -f /var/www/html/wp-config.php ]; then
         --dbhost="mariadb:3306" \
         --allow-root
 
-    echo "[init] Waiting for MariaDB to be reachable..."
-    until mysqladmin ping -h mariadb -u"${MYSQL_USER}" -p"${DB_PASSWORD}" --silent 2>/dev/null; do
-        sleep 2
-    done
 
     wp core install \
         --url="https://${DOMAIN_NAME}" \
@@ -54,4 +55,4 @@ if [ -n "${REDIS_HOST}" ] && [ -f /var/www/html/wp-config.php ]; then
 fi
 
 # Start php-fpm as PID 1 in the foreground (exec replaces the shell)
-exec php-fpm82 -F
+exec php-fpm84 -F

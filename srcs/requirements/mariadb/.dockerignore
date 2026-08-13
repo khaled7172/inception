@@ -1,1 +1,6 @@
 *
+!conf/
+!conf/*
+!tools/
+!tools/*
+!Dockerfile

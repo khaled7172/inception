@@ -45,7 +45,7 @@ services:
     image: static-site
     container_name: static-site
     ports:
-      - "8081:8081"
+      - "8082:8081"
     networks:
       - inception
     restart: on-failure
