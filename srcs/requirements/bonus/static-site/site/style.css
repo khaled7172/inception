@@ -1,0 +1,14 @@
+body {
+    font-family: system-ui, sans-serif;
+    background: #111;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+main {
+    max-width: 40rem;
+    padding: 2rem;
+}
