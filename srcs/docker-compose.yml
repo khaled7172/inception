@@ -11,7 +11,7 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - inception
-    restart: on-failure
+    restart: always
 
   wordpress:
     build: ./requirements/wordpress
@@ -30,7 +30,7 @@ services:
     depends_on:
       - mariadb
       - redis
-    restart: on-failure
+    restart: always
 
   nginx:
     build:
@@ -48,7 +48,7 @@ services:
       - inception
     depends_on:
       - wordpress
-    restart: on-failure
+    restart: always
 
 
   redis:
@@ -57,7 +57,7 @@ services:
     container_name: redis
     networks:
       - inception
-    restart: on-failure
+    restart: always
 
   ftp:
     build: ./requirements/bonus/ftp
@@ -73,7 +73,7 @@ services:
       - "21000-21010:21000-21010"
     networks:
       - inception
-    restart: on-failure
+    restart: always
 
   adminer:
     build: ./requirements/bonus/adminer
@@ -83,7 +83,7 @@ services:
       - "8080:8080"
     networks:
       - inception
-    restart: on-failure
+    restart: always
 
   static-site:
     build: ./requirements/bonus/static-site
@@ -93,7 +93,7 @@ services:
       - "8082:8081"
     networks:
       - inception
-    restart: on-failure
+    restart: always
 
   netdata:
     build: ./requirements/bonus/netdata
@@ -103,7 +103,7 @@ services:
       - "19999:19999"
     networks:
       - inception
-    restart: on-failure
+    restart: always
 
 volumes:
   db_data:
