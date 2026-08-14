@@ -12,16 +12,16 @@ Inception runs a complete WordPress website with the following services:
 | **Redis** *(bonus)* | WordPress object cache | Internal only (port 6379) |
 | **FTP** *(bonus)* | File access to WordPress uploads | Port 21 |
 | **Adminer** *(bonus)* | Database management web UI | http://khhammou.42.fr:8080 |
-| **Static Site** *(bonus)* | Standalone HTML/CSS showcase page | http://khhammou.42.fr:8081 |
+| **Static Site** *(bonus)* | Standalone HTML/CSS showcase page | http://khhammou.42.fr:8082 |
 | **Netdata** *(bonus)* | Real-time server monitoring | http://khhammou.42.fr:19999 |
 
 ## How to Start and Stop
 
 ```bash
-# Start mandatory services only
+# Start all services (mandatory + bonus)
 make
 
-# Start everything (mandatory + bonus)
+# Note: make bonus is provided for subject compatibility but does the exact same thing.
 make bonus
 
 # Stop all services (containers stay, just stopped)
@@ -73,7 +73,7 @@ All passwords are stored as **Docker secrets** in the `secrets/` directory:
 
 **To change a password:**
 1. Edit the relevant file in `secrets/`
-2. Run `make fclean && make` (or `make bonus`) to rebuild with new credentials
+2. Run `make fclean && make` to rebuild with new credentials
 
 > ⚠️ These files are git-ignored and must **never** be committed.
 

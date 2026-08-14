@@ -90,18 +90,16 @@ vi secrets/credentials.txt
 # Add domain to /etc/hosts
 echo "127.0.0.1 khhammou.42.fr" | sudo tee -a /etc/hosts
 
-# Build and run mandatory services
+# Build and run all services
 make
-
-# Or build with all bonus services
-make bonus
+# Note: make bonus is functionally identical in this configuration.
 ```
 
 ### Access
 - **Website:** https://khhammou.42.fr
 - **WordPress Admin:** https://khhammou.42.fr/wp-admin
 - **Adminer (bonus):** http://khhammou.42.fr:8080
-- **Static Site (bonus):** http://khhammou.42.fr:8081
+- **Static Site (bonus):** http://khhammou.42.fr:8082
 - **Netdata (bonus):** http://khhammou.42.fr:19999
 
 ## Resources

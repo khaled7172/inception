@@ -71,14 +71,14 @@ sudo mkdir -p /home/khhammou/data/db /home/khhammou/data/wordpress
 ## Build & Launch
 
 ```bash
-# Mandatory services only (nginx + wordpress + mariadb)
+# Build and start all services
 make
 
-# All services including bonus (redis, ftp, adminer, static-site, netdata)
+# make bonus is an alias for make
 make bonus
 ```
 
-The Makefile calls `docker compose` which reads `srcs/docker-compose.yml` (and `srcs/docker-compose.bonus.yml` for bonus). Docker Compose:
+The Makefile calls `docker compose` which reads `srcs/docker-compose.yml`. Docker Compose:
 1. Builds each image from its Dockerfile under `srcs/requirements/`
 2. Creates named volumes, the bridge network, and loads secrets
 3. Starts containers in dependency order (mariadb → wordpress → nginx)
@@ -174,8 +174,7 @@ Data in named volumes persists across `docker compose down` and `docker compose 
 │   └── ftp_password.txt
 └── srcs/
     ├── .env                          # Environment variables (git-ignored)
-    ├── docker-compose.yml            # Mandatory services
-    ├── docker-compose.bonus.yml      # Bonus services overlay
+    ├── docker-compose.yml            # Services
     └── requirements/
         ├── mariadb/
         │   ├── Dockerfile
