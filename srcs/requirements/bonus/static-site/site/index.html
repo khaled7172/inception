@@ -1,16 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Inception — Static Site</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khaled Hammoud - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <h1>Hello, I'm building Inception.</h1>
-        <p>This static page is served by its own lightweight Alpine + nginx
-           container, separate from the mandatory reverse-proxy nginx.
-           No PHP involved, as required.</p>
-    </main>
+  <div class="container">
+    
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero__status">Available for hire</div>
+      <h1>Khaled Hammoud</h1>
+      <p class="hero__subtitle">42 Beirut Level 5 Student & Computer Science Undergraduate. Full-stack developer with experience in React, Node.js, Next.js, NestJS, and AI-Enhanced pipelines.</p>
+      
+      <div class="hero__links">
+        <a href="mailto:Khaledhmmddd123@gmail.com" class="hero__link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/khaled-hammoud/" target="_blank" class="hero__link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/khaled7172" target="_blank" class="hero__link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub
+        </a>
+        <a href="#" class="hero__link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +961 81 820 764
+        </a>
+      </div>
+    </header>
+
+    <!-- Experience Section -->
+    <section class="section">
+      <h2 class="section__label">Experience</h2>
+      <div class="timeline">
+        <div class="card">
+          <div class="card__header">
+            <div>
+              <h3 class="card__title">AI-Enhanced Senior Track</h3>
+              <div class="card__org">OnRamp Academy (Forward Mena)</div>
+            </div>
+            <div class="card__date">Apr 2026 – Jul 2026</div>
+          </div>
+          <ul class="card__details">
+            <li>Completed an AI-enhanced full-stack bootcamp covering Node.js, Express, GraphQL, React, and database design.</li>
+            <li>Built production-style React and Node.js applications with authentication, state management, and performance optimization.</li>
+            <li>Applied DevOps, cloud, application security, and Agile/Scrum practices throughout team projects.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section">
+      <h2 class="section__label">Selected Projects</h2>
+      <div class="timeline">
+        
+        <div class="card">
+          <div class="card__header">
+            <div>
+              <h3 class="card__title">Gym Management System</h3>
+            </div>
+            <div class="card__date">May 2026 – Jul 2026</div>
+          </div>
+          <ul class="card__details">
+            <li>Built a full-stack, multi-tenant gym management platform supporting memberships, subscriptions, sessions, bookings, and check-ins.</li>
+            <li>Built a NestJS backend and Next.js frontend with shared Zod contracts in a Turborepo monorepo.</li>
+            <li>Implemented Prisma/PostgreSQL, magic-link authentication, and Docker Compose for Postgres, Redis, and Mailpit.</li>
+          </ul>
+          <div class="card__tech">
+            <span class="tag">NestJS</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Prisma</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <div>
+              <h3 class="card__title">RAG Against the Machine</h3>
+            </div>
+            <div class="card__date">Jun 2026 – Jul 2026</div>
+          </div>
+          <ul class="card__details">
+            <li>Built a Retrieval-Augmented Generation pipeline for a large codebase using optimized chunking and BM25 retrieval.</li>
+            <li>Generated structured JSON responses with Qwen3-0.6B, validated using Pydantic models.</li>
+            <li>Built a Python Fire CLI supporting indexing, search, answer generation, and recall@k evaluation.</li>
+          </ul>
+          <div class="card__tech">
+            <span class="tag">Python</span>
+            <span class="tag">BM25</span>
+            <span class="tag">Qwen3-0.6B</span>
+            <span class="tag">Pydantic</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <div>
+              <h3 class="card__title">LIU Chat (FYP)</h3>
+            </div>
+            <div class="card__date">Feb 2026 – Jun 2026</div>
+          </div>
+          <ul class="card__details">
+            <li>Built a real-time student messaging platform using REST APIs and WebSockets, supporting 700+ chat rooms.</li>
+            <li>Implemented OTP authentication, JWT sessions, and Supabase RLS policies for secure access.</li>
+            <li>Implemented end-to-end encrypted messaging using X25519 and AES-256-GCM, preventing server access to message contents.</li>
+          </ul>
+          <div class="card__tech">
+            <span class="tag">Flutter</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">WebSockets</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section">
+      <h2 class="section__label">Education</h2>
+      <div class="timeline">
+        <div class="card">
+          <div class="card__header">
+            <div>
+              <h3 class="card__title">42 Core Curriculum</h3>
+              <div class="card__org">42 Beirut</div>
+            </div>
+            <div class="card__date">2024 – Present</div>
+          </div>
+          <ul class="card__details">
+            <li>Architecture of Digital Technologies Program - Level 5</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <div class="card__header">
+            <div>
+              <h3 class="card__title">Bachelor of Science in Computer Science</h3>
+              <div class="card__org">Lebanese International University</div>
+            </div>
+            <div class="card__date">2023 – 2026</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section">
+      <h2 class="section__label">Technical Skills</h2>
+      <div class="skills-grid">
+        
+        <div class="skill-group">
+          <h3 class="skill-group__label">Languages</h3>
+          <div class="skill-group__items">
+            <span class="tag">C</span>
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Java</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group__label">Frameworks</h3>
+          <div class="skill-group__items">
+            <span class="tag">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">NestJS</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">Prisma</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group__label">Tools & Tech</h3>
+          <div class="skill-group__items">
+            <span class="tag">Git</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Linux</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">WebSockets</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="section">
+      <h2 class="section__label">Languages</h2>
+      <div class="lang-row">
+        <div class="lang-card">
+          <div class="lang-card__name">Arabic</div>
+          <div class="lang-card__level">Native</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-card__name">English</div>
+          <div class="lang-card__level">Fluent</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 Khaled Hammoud.</p>
+    </footer>
+
+  </div>
 </body>
 </html>

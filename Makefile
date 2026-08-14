@@ -3,7 +3,6 @@ ENV_FILE    = srcs/.env
 LOGIN       := $(shell grep -E '^LOGIN=' $(ENV_FILE) | cut -d '=' -f2)
 DATA_DIR    = /home/$(LOGIN)/data
 COMPOSE     = docker compose -f srcs/docker-compose.yml
-COMPOSE_ALL = docker compose -f srcs/docker-compose.yml -f srcs/docker-compose.bonus.yml
 
 all: up
 
@@ -11,21 +10,19 @@ up:
 	mkdir -p $(DATA_DIR)/db $(DATA_DIR)/wordpress
 	$(COMPOSE) up -d --build
 
-bonus:
-	mkdir -p $(DATA_DIR)/db $(DATA_DIR)/wordpress
-	$(COMPOSE_ALL) up -d --build
+bonus: up
 
 down:
-	$(COMPOSE_ALL) down
+	$(COMPOSE) down
 
 stop:
-	$(COMPOSE_ALL) stop
+	$(COMPOSE) stop
 
 start:
-	$(COMPOSE_ALL) start
+	$(COMPOSE) start
 
 logs:
-	$(COMPOSE_ALL) logs -f
+	$(COMPOSE) logs -f
 
 clean: down
 	docker system prune -af
