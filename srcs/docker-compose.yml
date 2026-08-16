@@ -31,6 +31,12 @@ services:
       - mariadb
       - redis
     restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 9000 || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 60s
 
   nginx:
     build:
@@ -47,7 +53,8 @@ services:
     networks:
       - inception
     depends_on:
-      - wordpress
+      wordpress:
+        condition: service_healthy
     restart: always
 
 

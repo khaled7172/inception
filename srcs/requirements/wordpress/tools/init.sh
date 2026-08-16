@@ -13,8 +13,8 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     echo "[init] Downloading WordPress core..."
     wp core download --allow-root --force
 
-    echo "[init] Waiting for MariaDB to be reachable..."
-    until mysqladmin ping -h mariadb -u"${MYSQL_USER}" -p"${DB_PASSWORD}" --silent 2>/dev/null; do
+    echo "[init] Waiting for MariaDB user and database to be ready..."
+    until mysql -h mariadb -u"${MYSQL_USER}" -p"${DB_PASSWORD}" "${MYSQL_DATABASE}" -e "SELECT 1;" 2>/dev/null; do
         sleep 2
     done
 
