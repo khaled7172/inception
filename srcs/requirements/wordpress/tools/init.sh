@@ -8,15 +8,15 @@ DB_PASSWORD=$(cat /run/secrets/db_password)
 WP_ADMIN_PASSWORD=$(grep WP_ADMIN_PASSWORD /run/secrets/credentials | cut -d '=' -f2)
 WP_USER_PASSWORD=$(grep WP_USER_PASSWORD /run/secrets/credentials | cut -d '=' -f2)
 
+echo "[init] Waiting for MariaDB user and database to be ready..."
+until mysql -h mariadb -u"${MYSQL_USER}" -p"${DB_PASSWORD}" "${MYSQL_DATABASE}" -e "SELECT 1;" >/dev/null 2>&1; do
+    sleep 2
+done
+
 # First-run: download WordPress, create config, install site, create users
 if [ ! -f /var/www/html/wp-config.php ]; then
     echo "[init] Downloading WordPress core..."
     wp core download --allow-root --force
-
-    echo "[init] Waiting for MariaDB user and database to be ready..."
-    until mysql -h mariadb -u"${MYSQL_USER}" -p"${DB_PASSWORD}" "${MYSQL_DATABASE}" -e "SELECT 1;" 2>/dev/null; do
-        sleep 2
-    done
 
     wp config create \
         --dbname="${MYSQL_DATABASE}" \
@@ -39,7 +39,6 @@ if [ ! -f /var/www/html/wp-config.php ]; then
         --user_pass="${WP_USER_PASSWORD}" \
         --allow-root
 
-    chown -R nobody:nobody /var/www/html
     echo "[init] WordPress installed."
 fi
 
@@ -53,6 +52,9 @@ if [ -n "${REDIS_HOST}" ] && [ -f /var/www/html/wp-config.php ]; then
         wp redis enable --path=/var/www/html --allow-root
     fi
 fi
+
+# Fix permissions for all files (including plugins installed by WP-CLI as root)
+chown -R nobody:nobody /var/www/html
 
 # Start php-fpm as PID 1 in the foreground (exec replaces the shell)
 exec php-fpm84 -F
